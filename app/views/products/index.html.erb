@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+  
+<div class="container">
+  <% @products.each_slice(4) do |product| %>
+    <div class="row">
+      <% product.each do |prod| %>
+        <div class="col">
+          <div class="card">
+            <%= image_tag 'Crocodile_01.jpg', class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-tite"><%= link_to prod.name, prod %></h5>
+              <p class="card-text"><%= prod.description %></p>
+              <p><%= prod.price %></p>
+              <a href="#" class="btn btn-primary">Offer It</a>
+              <%= link_to 'Edit', edit_product_path(prod), class: "btn btn-link" %>
+              <%= link_to 'Delete', prod, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-link" %>
+            </div>
+          </div></br>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div></br>
+
+
+  
+
+
+
+
+
+
+
