@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <%= form.label :expiration %>
-    <%= form.datetime_select :expiration, class: 'form-control' %>
+    <%= form.datetime_select :expiration, { ampm: true, order: [:day, :month, :year] }, class: 'form-control' %>
   </div>
 
   <div class="actions">
