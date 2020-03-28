@@ -5,7 +5,7 @@
   <% @offers.each_slice(2) do |offer| %>
     <div class="row">
       <% offer.each do |off| %>
-        <div class="col">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <div class="card">
             <%= image_tag 'download.png', class: "card-img-top" %>
             <div class="card-body">
