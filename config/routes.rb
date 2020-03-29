@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  root 'deals#index'
+  get '/deals', to: 'deals#index', as: 'deals'
   resources :products do 
   	resources :offers
   end

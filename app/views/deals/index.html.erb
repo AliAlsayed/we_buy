@@ -1,0 +1,24 @@
+<h1>Deals</h1>
+
+
+
+<div class="container">
+  <% @deals.each_slice(2) do |deal| %>
+    <div class="row">
+      <% deal.each do |d| %>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="card">
+            <%= image_tag 'download.png', class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-tite"><%= link_to d.product.name, d.product %></h5>
+              <p class="card-text"><strong>Buyers Required:</strong> <%= d.buyers_required %></p>
+              <p class="card-text"><strong>Amount for each:</strong> <%= d.amount_per_buyer %></p>
+              <p class="card-text"><strong>Expiration:</strong> <%= d.expiration %></p>
+              <%= link_to "Join The Group!", '#', class: 'btn btn-primary' %>
+            </div>
+          </div></br>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div></br>

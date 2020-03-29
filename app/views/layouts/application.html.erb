@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeBuy</title>
+    <title>Weem</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <a class="navbar-brand" href="#">WeBuy</a>
+  <%= link_to 'Weem', root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,7 +26,7 @@
         <%= link_to "New Product", new_product_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Account", '#', class: "nav-link" %>
+        <%= link_to "Deals", deals_path, class: "nav-link" %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
