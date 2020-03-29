@@ -14,7 +14,7 @@
               <p class="card-text"><strong>Amount for each:</strong> <%= off.amount_per_buyer %></p>
               <p class="card-text"><strong>Expiration:</strong> <%= off.expiration %></p>
               <%= link_to 'Edit', '#', class: "btn btn-link" %>
-              <%= link_to 'Delete', '#', method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-link" %>
+              <%= link_to 'Delete', product_offer_path(off.product, off), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-link" %>
             </div>
           </div></br>
         </div>
