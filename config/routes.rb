@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'deals#index'
   get '/deals', to: 'deals#index', as: 'deals'
   resources :products do 
