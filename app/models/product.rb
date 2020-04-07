@@ -7,5 +7,6 @@ class Product < ApplicationRecord
     message: 'must be a URL for GIF, JPG or PNG image.'
   }
 
+  belongs_to :seller, class_name: 'User'
   has_many :offers
 end
