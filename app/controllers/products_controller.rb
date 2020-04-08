@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :require_correct_seller]
+  before_action :authenticate_user!
+  before_action :require_correct_seller, only: [:show, :edit, :delete]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @user = User.find(params[:user_id])
+    redirect_to root_url unless @user.is_seller && @user == current_user
+    @products = @user.products 
   end
 
   # GET /products/1
@@ -15,7 +19,9 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @user = current_user
+    redirect_to root_url unless @user.is_seller
+    @product = @user.products.new
   end
 
   # GET /products/1/edit
@@ -26,6 +32,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.seller = current_user
 
     respond_to do |format|
       if @product.save
@@ -64,6 +71,12 @@ class ProductsController < ApplicationController
   end
 
   private
+
+    def require_correct_seller
+     unless @product.seller == current_user && current_user.is_seller
+      redirect_to root_url
+     end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])

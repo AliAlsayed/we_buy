@@ -10,7 +10,7 @@
           <div class="card">
             <%= image_tag 'download.png', class: "card-img-top" %>
             <div class="card-body">
-              <h5 class="card-tite"><%= link_to d.product.name, d.product %></h5>
+              <h5 class="card-tite"><%= d.product.name %></h5>
               <p class="card-text"><strong>Buyers Required:</strong> <%= d.buyers_required %></p>
               <p class="card-text"><strong>Amount for each:</strong> <%= d.amount_per_buyer %></p>
               <p class="card-text"><strong>Expiration:</strong> <%= d.expiration %></p>
