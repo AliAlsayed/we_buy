@@ -4,7 +4,11 @@ class Offer < ApplicationRecord
   numericality: { greater_than_or_equal_to: 1 } 
   validates :discount, inclusion: 1..100
   validate :expiration_cannot_be_in_the_past
+
   belongs_to :product
+  delegate :seller, to: :product
+  has_many :pledges
+  has_many :buyers, through: :pledges
 
   def expiration_cannot_be_in_the_past
     if expiration < Time.now

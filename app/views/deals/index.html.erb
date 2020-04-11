@@ -14,7 +14,7 @@
               <p class="card-text"><strong>Buyers Required:</strong> <%= d.buyers_required %></p>
               <p class="card-text"><strong>Amount for each:</strong> <%= d.amount_per_buyer %></p>
               <p class="card-text"><strong>Expiration:</strong> <%= d.expiration %></p>
-              <%= link_to "Join The Group!", '#', class: 'btn btn-primary' %>
+              <%= button_to "Join The Group!", offer_pledges_path(d), class: 'btn btn-primary' %>
             </div>
           </div></br>
         </div>
