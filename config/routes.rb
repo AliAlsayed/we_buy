@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'deals#index'
   get '/deals', to: 'deals#index', as: 'deals'
+  get '/deal/:id', to: 'deals#show', as: 'deal'
 
   resources :offers, only: [] do
     resources :pledges, only: [:create, :destroy]

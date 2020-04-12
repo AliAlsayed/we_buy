@@ -1,0 +1,21 @@
+<h1><%= @deal.product.name %></h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <div class="card">
+        <%= image_tag 'download.png', class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-tite"><%= @deal.product.name %></h5>
+          <p class="card-text"><strong>Buyers Required:</strong> <%= @deal.buyers_required %></p>
+          <p class="card-text"><strong>Amount for each:</strong> <%= @deal.amount_per_buyer %></p>
+          <p class="card-text"><strong>Pledges:</strong> <%= @pledges %></p>
+          <p class="card-text"><strong>Expiration:</strong> <%= @deal.expiration %></p>
+          <%= join_or_pull_out_button(@deal, @pledge) %>
+        </div>
+      </div></br>
+    </div>
+  </div>
+  <%= link_to 'back', deals_path, class: 'btn btn-light' %>
+</div></br>

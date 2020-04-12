@@ -8,13 +8,12 @@
       <% deal.each do |d| %>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <div class="card">
-            <%= image_tag 'download.png', class: "card-img-top" %>
+            <%= link_to (image_tag 'download.png', class: "card-img-top"), deal_path(d) %>
             <div class="card-body">
-              <h5 class="card-tite"><%= d.product.name %></h5>
+              <h5 class="card-tite"><%= link_to d.product.name, deal_path(d) %></h5>
               <p class="card-text"><strong>Buyers Required:</strong> <%= d.buyers_required %></p>
               <p class="card-text"><strong>Amount for each:</strong> <%= d.amount_per_buyer %></p>
               <p class="card-text"><strong>Expiration:</strong> <%= d.expiration %></p>
-              <%= button_to "Join The Group!", offer_pledges_path(d), class: 'btn btn-primary' %>
             </div>
           </div></br>
         </div>
