@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
  
   def index
-    @deals = Offer.all
+    @deals = Offer.ongoing
   end
   def show
     @deal = Offer.find(params[:id])

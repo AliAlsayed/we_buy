@@ -7,7 +7,7 @@ class Offer < ApplicationRecord
 
   belongs_to :product
   delegate :seller, to: :product
-  has_many :pledges
+  has_many :pledges, dependent: :destroy
   has_many :buyers, through: :pledges
 
   def expiration_cannot_be_in_the_past
@@ -15,4 +15,18 @@ class Offer < ApplicationRecord
       errors.add(:expiration, "cant't be in the past")
     end
   end
+
+  def self.ongoing
+    where('expiration > ?', Time.now)
+  end
+
+  def expired?
+    expiration <= Time.now
+  end
+
+  def sold?
+    buyers_required == buyers.count
+  end
+
+
 end

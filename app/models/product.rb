@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   }
 
   belongs_to :seller, class_name: 'User'
-  has_many :offers
+  has_many :offers, dependent: :destroy
   has_many :pledges, through: :offers
   has_many :buyers, through: :pledges
 end

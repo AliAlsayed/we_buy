@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
   #seller
-  has_many :products, foreign_key: 'seller_id'
+  has_many :products, foreign_key: 'seller_id', dependent: :destroy
   has_many :offers, through: :products
   #buyer
-  has_many :pledges, foreign_key: 'buyer_id'
+  has_many :pledges, foreign_key: 'buyer_id', dependent: :destroy
   has_many :deals, through: :pledges, source: :offer
 end
