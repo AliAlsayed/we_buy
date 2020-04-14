@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   #seller
   has_many :products, foreign_key: 'seller_id', dependent: :destroy
-  has_many :offers, through: :products
+  has_many :offers, through: :products, dependent: :destroy
   #buyer
   has_many :pledges, foreign_key: 'buyer_id', dependent: :destroy
   has_many :deals, through: :pledges, source: :offer
