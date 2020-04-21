@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-
+  
   def current_user_seller?
     current_user && current_user.is_seller
   end

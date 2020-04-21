@@ -11,7 +11,11 @@
   </head>
 
   <%= render 'layouts/nav' %>
-
+  <% if notice %>
+    <div class='alert alert-success'>
+      <%= notice %>
+    </div>
+  <% end %>
   <body>
     <%= yield %>
   </body>

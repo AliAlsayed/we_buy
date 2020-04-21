@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
- 
+
   def index
     @deals = Offer.ongoing
   end

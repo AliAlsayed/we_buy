@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root 'deals#index'
   get '/deals', to: 'deals#index', as: 'deals'
   get '/deal/:id', to: 'deals#show', as: 'deal'
-
+  get '/offers', to: 'offers#current_seller_offers', as: 'offers'
+  
   resources :offers, only: [] do
     resources :pledges, only: [:create, :destroy]
   end
