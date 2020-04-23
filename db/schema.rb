@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_194056) do
+ActiveRecord::Schema.define(version: 2020_04_21_194706) do
 
   create_table "offers", force: :cascade do |t|
     t.integer "buyers_required"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_194056) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "expiration"
     t.index ["product_id"], name: "index_offers_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "offer_id", null: false
+    t.integer "buyer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+    t.index ["offer_id"], name: "index_orders_on_offer_id"
   end
 
   create_table "pledges", force: :cascade do |t|
@@ -56,5 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_194056) do
   end
 
   add_foreign_key "offers", "products"
+  add_foreign_key "orders", "buyers"
+  add_foreign_key "orders", "offers"
   add_foreign_key "pledges", "offers"
 end

@@ -9,6 +9,7 @@ class Offer < ApplicationRecord
   delegate :seller, to: :product
   has_many :pledges, dependent: :destroy
   has_many :buyers, through: :pledges
+  has_many :orders
 
   def expiration_cannot_be_in_the_past
     if expiration < Time.now

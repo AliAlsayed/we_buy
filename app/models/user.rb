@@ -10,4 +10,5 @@ class User < ApplicationRecord
   #buyer
   has_many :pledges, foreign_key: 'buyer_id', dependent: :destroy
   has_many :deals, through: :pledges, source: :offer
+  has_many :orders, foreign_key: 'buyer_id'
 end

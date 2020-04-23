@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get 'offer_buyers/create'
+  resources :orders
   devise_for :users
 
   root 'deals#index'
   get '/deals', to: 'deals#index', as: 'deals'
   get '/deal/:id', to: 'deals#show', as: 'deal'
-  get '/offers', to: 'offers#current_seller_offers', as: 'offers'
   
-  resources :offers, only: [] do
+  resources :offers, only: [:show] do
     resources :pledges, only: [:create, :destroy]
   end
 
@@ -17,8 +16,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :products, only: [:index]
+    resources :offers, only: [:index]
   end
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+  

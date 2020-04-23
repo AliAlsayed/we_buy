@@ -1,14 +1,13 @@
 class OffersController < ApplicationController
 
-  before_action :require_seller, only: [:current_seller_offers]
+  before_action :require_seller, only: [:index, :show]
   
-  def current_seller_offers
+  
+  def index
     @offers = current_user.offers
   end
 
-  def index
-    @product = Product.find(params[:product_id])
-    @offers = @product.offers
+  def show  
   end
 
   def new
