@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
   belongs_to :offer
-  belongs_to :buyer
+  belongs_to :buyer, class_name: 'User'
 end
