@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_194706) do
   end
 
   add_foreign_key "offers", "products"
-  add_foreign_key "orders", "buyers"
   add_foreign_key "orders", "offers"
+  add_foreign_key "orders", "users", column: "buyer_id"
   add_foreign_key "pledges", "offers"
 end
