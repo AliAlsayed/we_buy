@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
       <div class="card">
-        <%= image_tag 'download.png', class: "card-img-top" %>
+        <%= image_tag @deal.product.main_image.variant(resize_to_limit: [1200, 1200]), class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-tite"><%= @deal.product.name %></h5>
           <p class="card-text"><strong>Buyers Required:</strong> <%= @deal.buyers_required %></p>

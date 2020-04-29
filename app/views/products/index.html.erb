@@ -9,9 +9,9 @@
       <% product.each do |prod| %>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <div class="card">
-            <%= image_tag 'download.png', class: "card-img-top" %>
+            <%= image_tag prod.main_image.variant(resize_to_limit: [1200, 1200]), class: "card-img-top" %>
             <div class="card-body">
-              <h5 class="card-tite"><%= link_to prod.name, prod %></h5>
+              <h5 class="card-tite"><%= prod.name %></h5>
               <p class="card-text"><%= prod.description %></p>
               <p><%= number_to_currency(prod.price) %></p>
               <%= link_to 'Offer It', new_product_offer_path(prod),  class: "btn btn-primary" %>

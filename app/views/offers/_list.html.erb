@@ -4,7 +4,7 @@
       <% offer.each do |off| %>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <div class="card">
-            <%= link_to (image_tag 'download.png', class: "card-img-top"), off %>
+            <%= link_to (image_tag off.product.main_image.variant(resize_to_limit: [1200, 1200]), class: "card-img-top"), off %>
             <div class="card-body">
               <h5 class="card-tite"><%= link_to off.product.name, off %></h5>
               <p class="card-text"><strong>Buyers Required:</strong> <%= off.buyers_required %></p>

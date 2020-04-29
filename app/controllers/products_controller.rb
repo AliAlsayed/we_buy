@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :require_correct_seller]
+  before_action :set_product, only: [:edit, :update, :destroy, :require_correct_seller]
   before_action :authenticate_user!
-  before_action :require_correct_seller, only: [:show, :edit, :delete]
+  before_action :require_correct_seller, only: [:edit, :delete]
 
   # GET /products
   # GET /products.json
@@ -13,9 +13,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   # GET /products/1.json
-  def show
-    @product = Product.find(params[:id])
-  end
 
   # GET /products/new
   def new
@@ -36,7 +33,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to user_products_path(current_user), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -84,6 +81,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :image_url, :price)
+      params.require(:product).permit(:name, :description, :main_image, :price)
     end
 end

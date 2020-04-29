@@ -8,7 +8,7 @@
       <% deal.each do |d| %>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <div class="card">
-            <%= link_to (image_tag 'download.png', class: "card-img-top"), deal_path(d) %>
+            <%= link_to (image_tag d.product.main_image.variant(resize_to_limit: [1200, 1200]), class: "card-img-top"), deal_path(d) %>
             <div class="card-body">
               <h5 class="card-tite"><%= link_to d.product.name, deal_path(d) %></h5>
               <p class="card-text"><strong>Buyers Required:</strong> <%= d.buyers_required %></p>

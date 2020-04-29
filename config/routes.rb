@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :pledges, only: [:create, :destroy]
   end
 
-  resources :products, except: [:index] do 
+  resources :products, except: [:index, :show] do 
     resources :offers
   end
 
