@@ -16,7 +16,7 @@ class Product < ApplicationRecord
 
       return unless main_image.attached?
         
-      unless main_image.blob.byte_size <= 1.megabyte
+      unless main_image.blob.byte_size <= 3.megabyte
         errors.add(:main_image, "is too big")
       end
 
