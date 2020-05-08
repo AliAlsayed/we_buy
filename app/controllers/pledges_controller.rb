@@ -4,6 +4,13 @@ class PledgesController < ApplicationController
   def create
   	@deal = Offer.find(params[:offer_id])
   	@deal.pledges.create!(buyer: current_user)
+
+    if @deal.buyers_required_complete?
+      @deal.pledges.each do |pledge|
+        @deal.orders.create!(buyer: pledge.buyer)
+      end
+    end
+    
   	redirect_to deal_path(@deal)
   end
   def destroy

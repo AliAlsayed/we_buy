@@ -1,0 +1,20 @@
+
+<div class="container">
+  <% @orders.each_slice(4) do |order| %>
+    <div class="row" >
+      <% order.each do |ord| %>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="card">
+            <%= image_tag ord.product.main_image.variant(resize_to_limit: [1200, 1200]), class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-tite"><%= ord.product.name %></h5>
+              <p class="card-text"><%= ord.product.description %></p>
+              <p><%= number_to_currency(ord.product.price) %></p>
+              <%= link_to 'Ship', '#',  class: "btn btn-primary" %>
+            </div>
+          </div></br>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div></br>

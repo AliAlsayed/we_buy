@@ -29,5 +29,9 @@ class Offer < ApplicationRecord
     buyers_required == buyers.count
   end
 
+  def buyers_required_complete?
+    pledges.length == buyers_required
+  end
+
 
 end

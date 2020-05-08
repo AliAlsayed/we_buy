@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :orders
+  
   devise_for :users
 
   root 'deals#index'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :products, only: [:index]
     resources :offers, only: [:index]
+    resources :orders, only: [:index]
   end
 
 
